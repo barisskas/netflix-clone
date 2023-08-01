@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { signOut, getSession } from "next-auth/react";
 import { NextPageContext } from "next";
 import useCurrentUser from "@/hooks/useCurrentUser";
+import NavbarItem from "@/components/NavbarItem";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,12 +28,22 @@ export default function Home() {
   const { data: user } = useCurrentUser();
   console.log(user);
   return (
-    <div>
-      <h1 className="text-4xl font-bold text-center">Hello World</h1>
-      <p className="text-2xl font-bold text-center text-white">{user?.email}</p>
-      <button className="h-full w-full bg-white" onClick={() => signOut()}>
-        Sign Out
-      </button>
-    </div>
+    <nav className="w-ful fixed z-48">
+      <div className="px-4 md:px-16 py-6 flex flex-row items-center trantsition duration-500 bg-zinc-900 bg-opacity-90">
+        <img className="h-4 lg:h-7" src="/images/logo.png" alt="" />
+        <div className="flex-row ml-8 gap-7 hidden lg:flex ">
+          <NavbarItem label={"Home"} />
+          <NavbarItem label={"Series"} />
+
+          <NavbarItem label={"Films"} />
+
+          <NavbarItem label={"New & Popular"} />
+
+          <NavbarItem label={"My List"} />
+
+          <NavbarItem label={"Browse by languages"} />
+        </div>
+      </div>
+    </nav>
   );
 }
