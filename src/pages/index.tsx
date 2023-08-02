@@ -9,6 +9,7 @@ import NavbarItem from "@/components/NavbarItem";
 import { BsChevronDown } from "react-icons/bs";
 import MobileMenu from "@/components/MobileMenu";
 import Navbar from "@/components/Navbar";
+import Billboard from "@/components/Billboard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <Billboard />
     </>
   );
 }
