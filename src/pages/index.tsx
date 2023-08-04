@@ -12,6 +12,7 @@ import Navbar from "@/components/Navbar";
 import Billboard from "@/components/Billboard";
 import MovieList from "@/components/MovieList";
 import useMovieList from "@/hooks/useMovieList";
+import useFavorites from "@/hooks/useFavorites";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,12 +37,14 @@ export default function Home() {
   console.log(user);
 
   const { data: movies = [] } = useMovieList();
+  const { data: favorites = [] } = useFavorites();
   return (
     <>
       <Navbar />
       <Billboard />
       <div className="pb-40">
         <MovieList title="Trending Now" data={movies} />
+        <MovieList title="My List" data={favorites} />
       </div>
     </>
   );

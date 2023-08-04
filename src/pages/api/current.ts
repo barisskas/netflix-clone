@@ -10,7 +10,7 @@ export default async function handler(
     return res.status(405).json({ message: "Method not allowed" });
   }
   try {
-    const { currentUser } = await serverAuth(req);
+    const { currentUser } = await serverAuth(req, res);
     return res.status(200).json(currentUser);
   } catch (error) {
     return res.status(401).end();
